@@ -1,0 +1,35 @@
+{
+  "contenidoStr": "\"{\\n  \\\"name\\\": \\\"tiempo\\\",\\n  \\\"version\\\": \\\"1.0.0\\\",\\n  \\\"description\\\": \\\"\\\",\\n  \\\"main\\\": \\\"tiempo.js\\\",\\n  \\\"scripts\\\": {\\n    \\\"test\\\": \\\"echo \\\\\\\"Error: no test specified\\\\\\\" && exit 1\\\"\\n  },\\n  \\\"keywords\\\": [],\\n  \\\"author\\\": \\\"\\\",\\n  \\\"license\\\": \\\"ISC\\\"\\n}\\n\"",
+  "contenidoObj": {
+    "name": "tiempo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "tiempo.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  },
+  "size": ""
+}
+const fs = require('fs')
+
+function leerTexto(){
+    fs.promises.readFile('../tiempo/info.txt', 'utf-8')
+    .then(contenido => {
+        console.log(contenido)
+    })
+    .catch(error =>{
+        console.log('error de la lectura', error)
+    })
+} leerTexto()
+
+async function renombrar(info, coderhouse){
+    try {
+       await fs.promises.rename (info, coderhouse)
+    } catch (error) {
+        
+    }
+} renombrar()
